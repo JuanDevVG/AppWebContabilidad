@@ -1,11 +1,13 @@
+import LogoEmpresa from '../assets/images/LogoEmpresa.png'
+
 function BarraNavegacion() {
   return (
     <aside
       className="w-64 flex-shrink-0 border-r border-[#e6f4f4] dark:border-[#1e3a3a] bg-white dark:bg-[#152e2e] flex flex-col">
       <div className="p-6">
         <div className="flex items-center gap-3 mb-8">
-          <div className="p-2 bg-primary rounded-lg text-white">
-            <img src="assets/logo.png" alt="Logo" />
+          <div className="p-2 text-white h-10 w-10 h-full w-16">
+            <img src={LogoEmpresa} alt="Logo" className='w-full h-full border border-primary rounded-lg object-cover'/>
           </div>
           <div>
             <h1 className="text-[#0c1d1d] dark:text-white text-base font-bold leading-tight">Capipollo</h1>
