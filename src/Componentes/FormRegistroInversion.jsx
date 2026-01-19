@@ -1,4 +1,9 @@
+import { useState } from "react"
+
 function FormRegistroInversion() {
+
+    const [categoria, setCategoria] = useState("")
+
     return (
         <>
             <div className="lg:col-span-4 flex flex-col gap-6">
@@ -22,6 +27,24 @@ function FormRegistroInversion() {
                                 </select>
                             </div>
                             <div>
+                                <label className="block text-xs font-bold text-[#45a1a1] uppercase mb-1.5 ml-1">
+                                    Categoria
+                                </label>
+                                <select value={categoria} onChange={(e) => setCategoria(e.target.value)} className="w-full bg-background-light dark:bg-[#1a3636] border-none rounded-lg text-sm px-4 py-3 focus:ring-2 focus:ring-primary/20">
+                                    <option value="">Seleccionar</option>
+                                    <option value="lotePollos">Lote Pollos</option>
+                                    <option value="galpon1">Galpón N°1</option>
+                                    <option value="galpon2">Galpón N°2</option>
+                                </select>
+                            </div>
+                            {categoria === "lotePollos" && (
+                                <div>
+                                    <label htmlFor="numLote" className="block text-xs font-bold text-[#45a1a1] uppercase mb-1.5 ml-1">Número de Lote</label>
+                                    <input id="numLote" type="text" placeholder="Ej. L260120" className="w-full bg-background-light dark:bg-[#1a3636] border-none rounded-lg text-sm px-4 py-3 focus:ring-2 focus:ring-primary/20" />
+                                </div>
+                            )}
+
+                            <div>
                                 <label htmlFor="fechaInversion" className="block text-xs font-bold text-[#45a1a1] uppercase mb-1.5 ml-1">Fecha de Inversión</label>
                                 <div className="relative">
                                     <span
@@ -30,12 +53,12 @@ function FormRegistroInversion() {
                                 </div>
                             </div>
                             <div>
-                                <label htmlFor="productoServicio" className="block text-xs font-bold text-[#45a1a1] uppercase mb-1.5 ml-1">Producto / Descripcion Servicio</label>
-                                <input id="productoServicio" type="text" placeholder="Ej. Bombillo Amarillo" className="w-full bg-background-light dark:bg-[#1a3636] border-none rounded-lg text-sm px-4 py-3 focus:ring-2 focus:ring-primary/20"/>
+                                <label htmlFor="concepto" className="block text-xs font-bold text-[#45a1a1] uppercase mb-1.5 ml-1">Concepto</label>
+                                <input id="concepto" type="text" placeholder="Ej. Bombillo Amarillo" className="w-full bg-background-light dark:bg-[#1a3636] border-none rounded-lg text-sm px-4 py-3 focus:ring-2 focus:ring-primary/20" />
                             </div>
                             <div>
                                 <label htmlFor="proveedor" className="block text-xs font-bold text-[#45a1a1] uppercase mb-1.5 ml-1">Proveedor</label>
-                                <input id="proveedor" type="text" placeholder="Ej. Ferremax" className="w-full bg-background-light dark:bg-[#1a3636] border-none rounded-lg text-sm px-4 py-3 focus:ring-2 focus:ring-primary/20"/>
+                                <input id="proveedor" type="text" placeholder="Ej. Ferremax" className="w-full bg-background-light dark:bg-[#1a3636] border-none rounded-lg text-sm px-4 py-3 focus:ring-2 focus:ring-primary/20" />
                             </div>
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
@@ -43,7 +66,7 @@ function FormRegistroInversion() {
                                         className="block text-xs font-bold text-[#45a1a1] uppercase mb-1.5 ml-1">Cantidad</label>
                                     <input id="cantidad"
                                         className="w-full bg-background-light dark:bg-[#1a3636] border-none rounded-lg text-sm px-4 py-3 focus:ring-2 focus:ring-primary/20 text-right"
-                                        type="number" />
+                                        type="number" placeholder="0" />
                                 </div>
                                 <div>
                                     <label htmlFor="valorUnitario"
@@ -59,7 +82,7 @@ function FormRegistroInversion() {
                             </div>
                         </div>
                         <button className="w-full bg-primary hover:bg-[#005a5a] text-white font-bold py-4 rounded-lg shadow-lg shadow-primary/20 transition-all flex items-center justify-center gap-2 mt-4"
-                                type="submit" >
+                            type="submit" >
                             <span className="material-symbols-outlined">playlist_add</span>
                             Registrar Inversión
                         </button>
