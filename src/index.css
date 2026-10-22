@@ -2,20 +2,62 @@ body {
   font-family: 'Manrope', sans-serif;
 }
 
+/* Scrollbar delgado para paneles interiores */
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px;
 }
-
 .custom-scrollbar::-webkit-scrollbar-track {
   background: transparent;
 }
-
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #cdeaea;
+  background: #d0e4e4;
   border-radius: 10px;
 }
 
+/* Material Symbols en modo filled */
 .material-filled {
   font-variation-settings: 'FILL' 1;
 }
 
+/* Drawer animation */
+@keyframes slide-in {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+.animate-slide-in {
+  animation: slide-in 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Modal animation */
+@keyframes modal-in {
+  from { opacity: 0; transform: scale(0.96) translateY(6px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+.animate-modal-in {
+  animation: modal-in 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tabla densa ERP — filas compactas sin exceso de whitespace */
+.erp-table thead th {
+  padding: 10px 16px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #6b8f8f;
+  background: #f5f8f8;
+  border-bottom: 1px solid #e4ecec;
+  white-space: nowrap;
+}
+.erp-table tbody tr {
+  border-bottom: 1px solid #f0f5f5;
+  transition: background 100ms;
+}
+.erp-table tbody tr:hover {
+  background: #fafcfc;
+}
+.erp-table tbody td {
+  padding: 10px 16px;
+  font-size: 13px;
+  color: #1a2e2e;
+}
